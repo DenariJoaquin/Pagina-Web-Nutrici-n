@@ -1,0 +1,9 @@
+<app-header></app-header>
+<app-info-contenedor></app-info-contenedor>
+<app-separador-info 
+    [activeSection]="activeSection" 
+    (sectionChange)="onSectionSelected($event)"
+></app-separador-info>
+<app-seccion-posts *ngIf="activeSection == 'posts'"></app-seccion-posts>
+<app-seccion-juegos *ngIf="activeSection == 'juegos'"></app-seccion-juegos>
+<router-outlet> </router-outlet>
