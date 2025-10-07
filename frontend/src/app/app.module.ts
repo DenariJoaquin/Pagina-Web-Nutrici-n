@@ -10,6 +10,7 @@ import { SeparadorInfoComponent } from './components/separador-info/separador-in
 import { SeccionPostsComponent } from './components/seccion-posts/seccion-posts.component';
 import { SeccionJuegosComponent } from './components/seccion-juegos/seccion-juegos.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ProductosComponent } from './components/productos/productos.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FooterComponent } from './components/footer/footer.component';
     SeparadorInfoComponent,
     SeccionPostsComponent,
     SeccionJuegosComponent,
-    FooterComponent
+    FooterComponent,
+    ProductosComponent
   ],
   imports: [
     BrowserModule,

@@ -12,6 +12,15 @@ services:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
+      - ./Backend/sql/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  frontend:
+    build: ./frontend
+    container_name: frontend_nutricion
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend
 
   backend:
     build: ./backend
