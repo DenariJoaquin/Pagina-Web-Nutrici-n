@@ -1,35 +1,36 @@
-
 services:
-  frontend:
-    build: ./frontend
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_nutricion
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: nutricion_db
+      MYSQL_USER: nutricion_user
+      MYSQL_PASSWORD: nutricion_pass
     ports:
-      - "4200:4200"
+      - "3306:3306"
     volumes:
-      - ./frontend:/app
-      - /app/node_modules
-    depends_on:
-      - backend
+      - mysql_data:/var/lib/mysql
 
   backend:
     build: ./backend
+    container_name: backend_nutricion
+    restart: always
     ports:
       - "3000:3000"
+    environment:
+      DB_HOST: mysql
+      DB_USER: nutricion_user
+      DB_PASSWORD: nutricion_pass
+      DB_NAME: nutricion_db
+    depends_on:
+      - mysql
     volumes:
       - ./backend:/app
       - /app/node_modules
-    depends_on:
-      - mongodb
-    environment:
-      - MONGODB_URI=mongodb://mongodb:27017/nutricion-db
-
-  mongodb:
-    image: mongo:5
-    ports:
-      - "27017:27017"
-    volumes:
-      - mongodb_data:/data/db
-    environment:
-      - MONGO_INITDB_DATABASE=nutricion-db
+    working_dir: /app
+    command: ["node", "app.js"]
 
 volumes:
-  mongodb_data:
+  mysql_data:
