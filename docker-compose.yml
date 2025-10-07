@@ -18,9 +18,12 @@ services:
     build: ./frontend
     container_name: frontend_nutricion
     ports:
-      - "4200:80"
+      - "4200:4200"
     depends_on:
       - backend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
 
   backend:
     build: ./backend

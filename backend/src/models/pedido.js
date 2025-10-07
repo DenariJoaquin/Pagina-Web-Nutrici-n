@@ -1,4 +1,4 @@
-const db = require('../config/db');
+const db = require('../models/db');
 
 const Pedido = {
   crear: (usuario_id, total, estado = 'pendiente') => {

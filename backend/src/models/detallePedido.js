@@ -1,4 +1,4 @@
-const db = require('../config/db');
+const db = require('../models/db');
 
 const DetallePedido = {
   agregarProducto: (pedido_id, producto_id, cantidad, precio_unitario) => {

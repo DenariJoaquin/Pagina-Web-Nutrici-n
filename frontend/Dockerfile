@@ -1,13 +1,18 @@
-# Etapa 1: Build de Angular
-FROM node:18 AS build
+FROM node:18
+
 WORKDIR /app
+
+# Copiamos package.json y package-lock.json primero
 COPY package*.json ./
+
+# Instalamos dependencias
 RUN npm install
+
+# Copiamos el resto del código
 COPY . .
-RUN npm run build --prod
 
-# Etapa 2: Servir con Nginx
-FROM nginx:alpine
-COPY --from=build /app/dist/nutricion-app /usr/share/nginx/html
-EXPOSE 80
+# Exponemos el puerto de Angular
+EXPOSE 4200
 
+# Comando por defecto: levantar Angular en modo dev
+CMD ["npm", "start"]
