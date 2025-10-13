@@ -16,6 +16,11 @@ export class ProductosComponent implements OnInit {
       this.productos = data;
     });
   }
+
+  agregarAlCarrito(producto: Producto): void {
+    
+    console.log('Agregado:', producto.nombre);
+  }
 }
 
 
