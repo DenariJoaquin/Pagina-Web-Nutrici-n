@@ -8,6 +8,7 @@ COPY package*.json ./
 # Instalamos dependencias
 RUN npm install
 
+
 # Copiamos el resto del código
 COPY . .
 

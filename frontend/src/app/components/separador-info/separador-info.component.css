@@ -6,6 +6,7 @@
 }
 
 .separador_info{
+    position: relative;
     display: flex; 
     margin-top: 30px;
     padding: 15px;
@@ -36,6 +37,13 @@
     color: white;
     border-color: #ff5e9a;
 }
+.indicador {
+  position: absolute;
+  top: -10px;
+  height: 5px;
+  background-color: #ff5e99ad;
+  border-radius: 3px;
 
-
+  transition: left 0.3s ease, width 0.3s ease;
+}
     

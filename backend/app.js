@@ -1,25 +1,25 @@
 const express = require('express');
+const app = express();
 const dotenv = require('dotenv');
-const cors = require('./src/middlewares/cors');
+const cors = require('cors');
 const productoRoutes = require('./src/routes/producto');
 const pedidosRoutes = require('./src/routes/pedidos');
 const errorHandler = require('./src/middlewares/errorHandler');
+const authRoutes = require('./src/routes/auth');
+const path = require('path');
 
 dotenv.config();
 
-const app = express();
-app.use(express.json());
-app.use(cors);
+console.log('Base de datos:', process.env.DB_HOST);
 
-const path = require('path');
+app.use(express.json());
+app.use(cors());
+
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
-
-// Rutas
 app.use('/api/productos', productoRoutes);
 app.use('/api/pedidos', pedidosRoutes);
-
-// Middleware de errores (debe ir al final)
+app.use('/api/auth', authRoutes);
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 3000;

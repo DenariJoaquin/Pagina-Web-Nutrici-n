@@ -1,13 +1,24 @@
-<section class="seccion_change">
-  <section class="seccion-activa" id="productos">
-    <h2>Catálogo de Productos</h2>
-    <div class="producto-card" *ngFor="let producto of productos">
-      <img [src]=" producto.imagen" alt="{{ producto.nombre }}" />
-      <h3>{{ producto.nombre }}</h3>
-      <p>{{ producto.descripcion }}</p>
-      <p> Precio: ${{ producto.precio }}</p>
-      <p class="precio">${{ producto.precio }}</p>
-      <button (click)="agregarAlCarrito(producto)">Agregar al carrito</button>
+<section id="productos" class="seccion_change">
+  <section class="seccion-activa" id="seccion-productos">
+    <div class="titulo_productos">
+      <h1 class="h1">Catálogo de Productos</h1>
+    </div>
+
+    <div class="productos-grid">
+      <div class="producto-card" *ngFor="let producto of productos">
+        <div class="imagen-wrapper">
+          <img [src]=" producto.imagen" alt="{{ producto.nombre }}" />
+          <span *ngIf="producto.stock === 0" class="badge-stock">Sin stock</span>
+        </div>
+
+        <h3>{{ producto.nombre }}</h3>
+        <p class="descripcion">{{ producto.descripcion }}</p>
+        <span class="precio">${{ producto.precio }}</span>
+
+        <button class="button" [disabled]="producto.stock === 0" (click)="agregarAlCarrito(producto)">
+          {{ producto.stock === 0 ? 'No disponible' : 'Agregar al carrito' }}
+        </button>
+      </div>
     </div>
   </section>
 </section>

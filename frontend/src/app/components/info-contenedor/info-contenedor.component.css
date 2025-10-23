@@ -4,7 +4,9 @@
     height: 90%;
     width: 100%;
 }
-
+.fondo{
+    overflow: hidden;
+}
 .info{
     display: flex;
     flex-direction: column;
@@ -49,3 +51,23 @@
     display: flex;
     width: 100%;
 } 
+
+.emoji {
+    position: absolute;
+    top: -50px;
+    font-size: 20px;
+    opacity: 0.7;
+    animation: caer 8s linear forwards;
+}
+
+@keyframes caer {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
