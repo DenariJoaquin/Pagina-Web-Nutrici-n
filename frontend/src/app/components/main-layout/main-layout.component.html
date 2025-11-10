@@ -1,0 +1,8 @@
+<app-header></app-header>
+<app-info-contenedor></app-info-contenedor>
+<app-separador-info 
+    [activeSection]="activeSection" 
+    (sectionChange)="onSectionSelected($event)"
+></app-separador-info>
+
+<router-outlet></router-outlet>

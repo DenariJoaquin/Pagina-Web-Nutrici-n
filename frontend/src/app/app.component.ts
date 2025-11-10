@@ -8,9 +8,5 @@ import { Component } from '@angular/core';
   
 })
 export class AppComponent {
-  activeSection: 'posts' | 'juegos' | 'turnos' | 'productos' = 'productos';
-
-  onSectionSelected(section: 'posts' | 'juegos' | 'turnos' | 'productos') {
-    this.activeSection = section;
-  }
+  
 }

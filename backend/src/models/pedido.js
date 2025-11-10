@@ -1,34 +1,69 @@
 const db = require('../config/db');
 
 const Pedido = {
-  crear: (usuario_id, total, estado = 'pendiente') => {
-    return new Promise((resolve, reject) => {
-      const query = 'INSERT INTO pedidos (usuario_id, total, estado) VALUES (?, ?, ?)';
-      db.query(query, [usuario_id, total, estado], (err, result) => {
-        if (err) return reject(err);
-        resolve(result.insertId); // devuelve el ID del nuevo pedido
-      });
-    });
+  crear: async (usuario_id, total, estado = 'pendiente') => {
+    try {
+      const [result] = await db.query(
+        'INSERT INTO pedidos (usuario_id, total, estado) VALUES (?, ?, ?)',
+        [usuario_id, total, estado]
+      );
+      return result.insertId;
+    } catch (err) {
+      console.error('Error al crear pedido:', err);
+      throw err;
+    }
   },
 
-  obtenerPorUsuario: (usuario_id) => {
-    return new Promise((resolve, reject) => {
-      const query = 'SELECT * FROM pedidos WHERE usuario_id = ? ORDER BY creado_en DESC';
-      db.query(query, [usuario_id], (err, results) => {
-        if (err) return reject(err);
-        resolve(results);
+  obtenerPorUsuario: async (usuario_id) => {
+    try {
+      const [results] = await db.query(
+        `SELECT p.id AS pedido_id, p.total, p.estado, p.creado_en,
+                dp.producto_id, pr.nombre AS producto, dp.cantidad, dp.precio_unitario
+         FROM pedidos p
+         JOIN detalle_pedido dp ON p.id = dp.pedido_id
+         JOIN productos pr ON dp.producto_id = pr.id
+         WHERE p.usuario_id = ?
+         ORDER BY p.creado_en DESC`,
+        [usuario_id]
+      );
+
+      const pedidosMap = {};
+      results.forEach(row => {
+        if (!pedidosMap[row.pedido_id]) {
+          pedidosMap[row.pedido_id] = {
+            id: row.pedido_id,
+            total: row.total,
+            estado: row.estado,
+            creado_en: row.creado_en,
+            productos: []
+          };
+        }
+        pedidosMap[row.pedido_id].productos.push({
+          id: row.producto_id,
+          nombre: row.producto,
+          cantidad: row.cantidad,
+          precio_unitario: row.precio_unitario
+        });
       });
-    });
+
+      return Object.values(pedidosMap);
+    } catch (err) {
+      console.error('Error al obtener pedidos por usuario:', err);
+      throw err;
+    }
   },
 
-  obtenerPorId: (pedido_id) => {
-    return new Promise((resolve, reject) => {
-      const query = 'SELECT * FROM pedidos WHERE id = ?';
-      db.query(query, [pedido_id], (err, result) => {
-        if (err) return reject(err);
-        resolve(result[0]);
-      });
-    });
+  obtenerPorId: async (pedido_id) => {
+    try {
+      const [result] = await db.query(
+        'SELECT * FROM pedidos WHERE id = ?',
+        [pedido_id]
+      );
+      return result[0];
+    } catch (err) {
+      console.error('Error al obtener pedido por ID:', err);
+      throw err;
+    }
   }
 };
 

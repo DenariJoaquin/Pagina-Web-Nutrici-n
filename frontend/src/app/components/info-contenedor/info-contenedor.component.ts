@@ -6,7 +6,7 @@ import { Component, OnInit, OnDestroy, ElementRef, Renderer2 } from '@angular/co
   styleUrls: ['./info-contenedor.component.css']
 })
 export class InfoContenedorComponent implements OnInit, OnDestroy {
-
+  
   textoCompleto: string = [
     "¡Bienvenido/a a mi espacio de nutrición consciente! 🌱",
     "Aquí encontrarás todo lo necesario para tu bienestar:\n",

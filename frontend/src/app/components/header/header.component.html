@@ -20,5 +20,12 @@
             <img src="\icono_whatsapp.png" alt="Whatsapp" width="36" height="36">
         </a>
     </div>
-        
+    <button routerLink="/perfil" *ngIf="estaLogueado" class="perfil-btn">
+        Mi perfil
+    </button>
+
+
+    <button *ngIf="estaLogueado" (click)="confirmarLogout()" class="logout-btn">
+        🔒 Cerrar sesión
+    </button>
 </header>

@@ -12,52 +12,70 @@
             <section class="posts_img">
                 <button class="carrusel-btn prev" (click)="scrollLeft()">&#10094;</button>
                 <div class="carrusel-container" #carrusel>
-                    <div class="posts_img_config" *ngfor="let receta of recetas; let i = index">
-                        <img [src]="receta.imagen" [alt]="receta.nombre" (click)="mostrarBoton(i)">
-                        <a [href]="receta.link" target="_blank" class="boton-receta-simple" [class.mostrar]="botonVisible === i">
-                            Ver Receta
-                        </a>
-                
+                    <div class="posts_img_config" >
+                        <img src="\cocinera.png" alt="cocinera">
+
                     </div>
-                    <div class="posts_img_config">
+                    <div class="posts_img_config" 
+                        onmouseover="this.querySelector('.botonrecetas').style.opacity='1'" 
+                        onmouseout="this.querySelector('.botonrecetas').style.opacity='0'">
                         <img src="\post-avena.jpg" alt="avena">
+                        <a href="https://www.instagram.com/p/DE0OsMOPlxi/?img_index=1" class="botonrecetas" target="_blank">Ver Receta</a>
                         
                     </div>
-                    <div class="posts_img_config">
+                    <div class="posts_img_config"
+                        onmouseover="this.querySelector('.botonrecetas').style.opacity='1'" 
+                        onmouseout="this.querySelector('.botonrecetas').style.opacity='0'">
                         <img src="\post-trufas.jpg" alt="trufas">
-                        
+                        <a href="https://www.instagram.com/p/C-XxC0HOHZN/?img_index=1" class="botonrecetas" target="_blank">Ver Receta</a>
                     </div>
-                    <div class="posts_img_config">
+                    <div class="posts_img_config"
+                        onmouseover="this.querySelector('.botonrecetas').style.opacity='1'" 
+                        onmouseout="this.querySelector('.botonrecetas').style.opacity='0'">
                         <img src="\post-panqueque.jpg" alt="panqueque">
-                        
+                        <a href="https://www.instagram.com/p/DBwI-TruT5L/?img_index=1" class="botonrecetas" target="_blank">Ver Receta</a>
                     </div>
-                    <div class="posts_img_config">
+                    <div class="posts_img_config"
+                        onmouseover="this.querySelector('.botonrecetas').style.opacity='1'" 
+                        onmouseout="this.querySelector('.botonrecetas').style.opacity='0'">
                         <img src="\post-tartazuchinni.jpg" alt="tarta">
-                        
+                        <a href="https://www.instagram.com/p/C_v-6kZyxGn/?img_index=1" class="botonrecetas" target="_blank">Ver Receta</a>
                     </div>
-                    <div class="posts_img_config">
+                    <div class="posts_img_config"
+                        onmouseover="this.querySelector('.botonrecetas').style.opacity='1'" 
+                        onmouseout="this.querySelector('.botonrecetas').style.opacity='0'">
                         <img src="\post-tortaintegral.jpg" alt="torta">
-                        
+                        <a href="https://www.instagram.com/p/DBHsRnQO8y4/?img_index=1" class="botonrecetas" target="_blank">Ver Receta</a>
                     </div>
-                    <div class="posts_img_config">
+                    <div class="posts_img_config"
+                        onmouseover="this.querySelector('.botonrecetas').style.opacity='1'" 
+                        onmouseout="this.querySelector('.botonrecetas').style.opacity='0'">
                         <img src="\post-pepas-avena.jpg" alt="pepas">
-                        
+                        <a href="https://www.instagram.com/p/C3qhkcOO9Ao/?img_index=1" class="botonrecetas" target="_blank">Ver Receta</a>
                     </div>
-                    <div class="posts_img_config">
+                    <div class="posts_img_config"
+                        onmouseover="this.querySelector('.botonrecetas').style.opacity='1'" 
+                        onmouseout="this.querySelector('.botonrecetas').style.opacity='0'">
                         <img src="\post-zato.jpg" alt="sopa">
-                        
+                        <a href="https://www.instagram.com/p/C7jkUgcurRS/?img_index=1" class="botonrecetas" target="_blank">Ver Receta</a>
                     </div>
-                    <div class="posts_img_config">
+                    <div class="posts_img_config"
+                        onmouseover="this.querySelector('.botonrecetas').style.opacity='1'" 
+                        onmouseout="this.querySelector('.botonrecetas').style.opacity='0'">
                         <img src="\post-panqueques.jpg" alt="panqueque">
-                       
+                       <a href="https://www.instagram.com/p/C4beB4uuz_B/?img_index=1" class="botonrecetas" target="_blank">Ver Receta</a>
                     </div>
-                    <div class="posts_img_config">
+                    <div class="posts_img_config"
+                        onmouseover="this.querySelector('.botonrecetas').style.opacity='1'" 
+                        onmouseout="this.querySelector('.botonrecetas').style.opacity='0'">
                         <img src="\post-mermelada-frutosrojos.jpg" alt="mermelada">
-                        
+                        <a href="hhttps://www.instagram.com/p/C0uu9OoON1l/?img_index=1" class="botonrecetas" target="_blank">Ver Receta</a>
                     </div>
-                    <div class="posts_img_config">
+                    <div class="posts_img_config"
+                        onmouseover="this.querySelector('.botonrecetas').style.opacity='1'" 
+                        onmouseout="this.querySelector('.botonrecetas').style.opacity='0'">
                         <img src="\post-tarta.jpg" alt="tarta">
-                        
+                        <a href="https://www.instagram.com/p/Cs93sFvsJY0/?img_index=1" class="botonrecetas" target="_blank">Ver Receta</a>
                     </div>
                     <div class="posts_img_config">
                         <img src="\nutricionistarecetas.png" alt="proximamente">

@@ -1,0 +1,40 @@
+<div class="login-wrapper">
+  <div class="login-card">
+    <div class="login-header">
+      <img src="\cuenta.png" alt="Logo" class="login-logo" />
+    </div>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <label class="label">Email:</label>
+      <input formControlName="email" type="email" />
+      <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="error">
+        Email inválido o vacío.
+      </div>
+
+      <label class="label">Nombre:</label>
+      <input formControlName="nombre" type="text" />
+      <div *ngIf="registerForm.get('nombre')?.invalid && registerForm.get('nombre')?.touched" class="error">
+        El nombre es obligatorio.
+      </div>
+
+      <label class="label">Contraseña:</label>
+      <input formControlName="password" type="password" />
+      <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="error">
+        La contraseña debe tener al menos 6 caracteres.
+      </div>
+
+      <label class="label">Confirmar Contraseña:</label>
+      <input formControlName="confirmPassword" type="password" />
+      <div *ngIf="registerForm.get('confirmPassword')?.invalid && registerForm.get('confirmPassword')?.touched" class="error">
+        Debés confirmar tu contraseña.
+      </div>
+
+      <button type="submit" [disabled]="registerForm.invalid">Registrarse</button>
+      <button type="button" (click)="irAlogin()">Ya tengo cuenta</button>
+
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+    </form>
+  </div>
+</div>

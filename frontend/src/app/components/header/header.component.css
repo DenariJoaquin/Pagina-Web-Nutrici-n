@@ -37,3 +37,21 @@
     text-decoration: underline;
     opacity: 0.8;
 }
+
+.perfil-btn,.logout-btn {
+  background-color: #e99847;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  margin: 8px;
+}
+
+.perfil-btn:hover,.logout-btn:hover {
+  background-color: #c0392b;
+}
+
+

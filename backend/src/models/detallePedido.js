@@ -1,32 +1,39 @@
 const db = require('../config/db');
 
 const DetallePedido = {
-  agregarProducto: (pedido_id, producto_id, cantidad, precio_unitario) => {
-    return new Promise((resolve, reject) => {
+  agregarProducto: async (pedido_id, producto_id, cantidad, precio_unitario) => {
+    try {
       const query = `
         INSERT INTO detalle_pedido (pedido_id, producto_id, cantidad, precio_unitario)
         VALUES (?, ?, ?, ?)
       `;
-      db.query(query, [pedido_id, producto_id, cantidad, precio_unitario], (err, result) => {
-        if (err) return reject(err);
-        resolve(result.insertId);
-      });
-    });
+      const [result] = await db.query(query, [
+        pedido_id,
+        producto_id,
+        cantidad,
+        precio_unitario
+      ]);
+      return result.insertId;
+    } catch (err) {
+      console.error('Error al agregar producto al detalle:', err);
+      throw err;
+    }
   },
 
-  obtenerPorPedido: (pedido_id) => {
-    return new Promise((resolve, reject) => {
+  obtenerPorPedido: async (pedido_id) => {
+    try {
       const query = `
         SELECT dp.*, p.nombre, p.descripcion, p.imagen
         FROM detalle_pedido dp
         JOIN productos p ON dp.producto_id = p.id
         WHERE dp.pedido_id = ?
       `;
-      db.query(query, [pedido_id], (err, results) => {
-        if (err) return reject(err);
-        resolve(results);
-      });
-    });
+      const [results] = await db.query(query, [pedido_id]);
+      return results;
+    } catch (err) {
+      console.error('Error al obtener detalle del pedido:', err);
+      throw err;
+    }
   }
 };
 

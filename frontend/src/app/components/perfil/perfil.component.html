@@ -1,0 +1,7 @@
+<div *ngIf="usuario" class="perfil-card">
+  <h2>👤 Bienvenido</h2>
+  <p><strong>Email:</strong> {{ usuario.email }}</p>
+  <p>¡Nos alegra tenerte por acá!</p>
+</div>
+<button routerLink="/pedidos" class="perfil-btn">📦 Mis pedidos</button>
+<button (click)="volver()" class="volver-btn">🔙 Volver</button>

@@ -1,12 +1,17 @@
+#productos {
+  background-image: url('/fondo-productos.jpg') ;
+  background-size: cover;
+}
+
 .titulo_productos{
   text-align: center;
 }
 .h1 {
+  padding-top: 20px;
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 700;
   color: #f6b3e0;
-  margin: 2rem 0 1.5rem;
   background: none;
   position: relative;
 }

@@ -14,7 +14,15 @@ CREATE TABLE IF NOT EXISTS productos (
 INSERT INTO productos (nombre, descripcion, precio, stock, imagen)
 VALUES
   ('Proteína Vegana', 'Proteína vegetal sabor vainilla', 4500.00, 20, 'img-palta.jpg'),
-  ('Multivitamínico', 'Suplemento con vitaminas A, B, C, D y E', 3200.00, 50, 'post-avena.jpg');
+  ('Multivitamínico', 'Suplemento con vitaminas A, B, C, D y E', 3200.00, 50, 'post-avena.jpg'),
+  ('Barras Energéticas', 'Barras de cereales y frutos secos', 1500.00, 100, 'post-avena.jpg'),
+  ('Omega 3', 'Suplemento de aceite de pescado', 2800.00, 30, 'post-panqueque.jpg'),
+  ('Creatina Monohidratada', 'Suplemento para mejorar el rendimiento físico', 3500.00, 40, 'post-panqueques.jpg'),
+  ('Vitamina C', 'Suplemento de vitamina C para fortalecer el sistema inmunológico', 1200.00, 80, 'post-tarta.jpg'),
+  ('BCAA', 'Aminoácidos de cadena ramificada para recuperación muscular', 4000.00, 25, 'post-tarta.jpg'),
+  ('Glutamina', 'Suplemento para la recuperación muscular y el sistema inmunológico', 3000.00, 35, 'post-tarta.jpg'),
+  ('Pre-entrenamiento', 'Suplemento para aumentar la energía y el enfoque durante el entrenamiento', 3800.00, 45, 'post-tarta.jpg'),
+  ('Zinc', 'Suplemento de zinc para la salud general y el sistema inmunológico', 1100.00, 60, 'post-tarta.jpg');
 
 -- Tabla de usuarios
 CREATE TABLE IF NOT EXISTS usuarios (
